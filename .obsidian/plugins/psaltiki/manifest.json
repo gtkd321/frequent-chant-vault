@@ -1,0 +1,9 @@
+{
+  "id": "psaltiki",
+  "name": "Psaltiquent",
+  "version": "1.0.0",
+  "minAppVersion": "1.4.0",
+  "description": "Byzantine music year-one course: daily pacing, spaced review, ison drone, ear quiz and pitch check.",
+  "author": "Psaltiquent",
+  "isDesktopOnly": false
+}
