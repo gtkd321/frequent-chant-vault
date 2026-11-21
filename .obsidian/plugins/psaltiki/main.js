@@ -1,4 +1,4 @@
-/* Psaltiquent — Byzantine music self-study pacer for Obsidian.
+/* Frequent Chant — Byzantine music self-study pacer for Obsidian.
  * Code blocks: psaltiki-today, psaltiki-review, psaltiki-drone, psaltiki-plan, psaltiki-tone
  */
 const obsidian = require('obsidian');
@@ -146,7 +146,7 @@ H.dueCards = (cards, state, currentWeek, todayIso, newLimit) => {
 };
 
 // ---------------- plugin ----------------
-class PsaltiquentPlugin extends Plugin {
+class FrequentChantPlugin extends Plugin {
   async onload() {
     this.H = H;
     this.data = DATA;
@@ -159,7 +159,7 @@ class PsaltiquentPlugin extends Plugin {
     this.registerMarkdownCodeBlockProcessor('psaltiki-tone', (src, el, ctx) => this.renderTone(el, ctx));
     this.addCommand({ id: 'open-home', name: 'Open Home', callback: () => this.app.workspace.openLinkText('Home', '', false) });
     this.addCommand({ id: 'stop-sound', name: 'Stop drone and sounds', callback: () => this.stopAll() });
-    this.addRibbonIcon('music', 'Psaltiquent: Home', () => this.app.workspace.openLinkText('Home', '', false));
+    this.addRibbonIcon('music', 'Frequent Chant: Home', () => this.app.workspace.openLinkText('Home', '', false));
     this.addSettingTab(new PsaltiSettings(this.app, this));
     this.app.workspace.onLayoutReady(() => {
       if (!this.app.workspace.getActiveFile()) this.app.workspace.openLinkText('Home', '', false);
@@ -185,11 +185,11 @@ class PsaltiquentPlugin extends Plugin {
         const d = this.defaultProgress();
         return Object.assign(d, p, { settings: Object.assign(d.settings, p.settings || {}) });
       }
-    } catch (e) { console.error('Psaltiquent: could not read progress', e); new Notice('Psaltiquent: progress.json could not be read; starting fresh view (file untouched).'); this.readOnly = true; }
+    } catch (e) { console.error('Frequent Chant: could not read progress', e); new Notice('Frequent Chant: progress.json could not be read; starting fresh view (file untouched).'); this.readOnly = true; }
     return this.defaultProgress();
   }
   async saveProgress() {
-    if (this.readOnly) { new Notice('Psaltiquent: progress file is unreadable, not saving. Fix or delete My Work/progress.json.'); return; }
+    if (this.readOnly) { new Notice('Frequent Chant: progress file is unreadable, not saving. Fix or delete My Work/progress.json.'); return; }
     const ad = this.app.vault.adapter;
     if (!(await ad.exists('My Work'))) await this.app.vault.createFolder('My Work');
     await ad.write(PROGRESS_PATH, JSON.stringify(this.progress, null, 1));
@@ -500,7 +500,7 @@ class PsaltiquentPlugin extends Plugin {
       }
       const steps = [];
       for (let k = b; k < b + 7; k++) steps.push(H.posOf(state.genus, k + 1) - H.posOf(state.genus, k));
-      info.setText(`Steps upward from ${state.base}: ${steps.join(' – ')} moria. Ni = ${ni().toFixed(2)} Hz (change it in Settings → Psaltiquent).`);
+      info.setText(`Steps upward from ${state.base}: ${steps.join(' – ')} moria. Ni = ${ni().toFixed(2)} Hz (change it in Settings → Frequent Chant).`);
     };
     gsel.onchange = () => { state.genus = gsel.value; drawKeys(); if (this.drone) this.startDrone(H.freq(ni(), H.posOf(state.genus, baseK()))); };
     bsel.onchange = () => { state.base = bsel.value; drawKeys(); if (this.drone) this.startDrone(H.freq(ni(), H.posOf(state.genus, baseK()))); };
@@ -619,7 +619,7 @@ class PsaltiSettings extends PluginSettingTab {
     const { containerEl } = this;
     const p = this.plugin;
     containerEl.empty();
-    containerEl.createEl('h2', { text: 'Psaltiquent' });
+    containerEl.createEl('h2', { text: 'Frequent Chant' });
     new Setting(containerEl).setName('Pitch of Ni (Hz)').setDesc('Sets the pitch of the drone and the tuner. Ni = 130.81 Hz is a low C, a comfortable range for many men; try 196 Hz (G) or 220 Hz (A) for higher voices.')
       .addText((t) => t.setValue(String(p.progress.settings.niHz)).onChange(async (v) => { const n = Number(v); if (n > 40 && n < 1000) { p.progress.settings.niHz = n; await p.saveProgress(); } }));
     new Setting(containerEl).setName('New review cards per day').addText((t) => t.setValue(String(p.progress.settings.newCardsPerDay)).onChange(async (v) => { const n = parseInt(v); if (n >= 0 && n < 50) { p.progress.settings.newCardsPerDay = n; await p.saveProgress(); } }));
@@ -642,11 +642,11 @@ class PsaltiSettings extends PluginSettingTab {
       }));
     new Setting(containerEl).setName('Reset all progress').setDesc('Clears days, review cards and the pace clock. Your Practice Log is kept.')
       .addButton((b) => b.setButtonText('Reset').setWarning().onClick(async () => {
-        if (!window.confirm('Reset all Psaltiquent progress?')) return;
+        if (!window.confirm('Reset all Frequent Chant progress?')) return;
         p.progress = p.defaultProgress(); await p.saveProgress(); new Notice('Progress reset');
       }));
   }
 }
 
-module.exports = PsaltiquentPlugin;
+module.exports = FrequentChantPlugin;
 module.exports.H = H;

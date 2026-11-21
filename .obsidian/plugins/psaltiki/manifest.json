@@ -1,9 +1,9 @@
 {
   "id": "psaltiki",
-  "name": "Psaltiquent",
+  "name": "Frequent Chant",
   "version": "1.0.0",
   "minAppVersion": "1.4.0",
   "description": "Byzantine music year-one course: daily pacing, spaced review, ison drone, ear quiz and pitch check.",
-  "author": "Psaltiquent",
+  "author": "Frequent Chant",
   "isDesktopOnly": false
 }

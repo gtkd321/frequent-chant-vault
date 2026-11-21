@@ -1,4 +1,4 @@
-# Psaltiquent
+# Frequent Chant
 
 > [!tip] Don't see buttons below?
 > If you see a grey box of code instead of the daily dashboard, community plugins are off in this vault. Open [[Start Here]] and follow step 2.

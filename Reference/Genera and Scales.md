@@ -26,7 +26,7 @@ Schools describe the enharmonic differently. Some speak of a lowered Zo inside a
 
 ## Pitch
 
-The plugin plays Ni at 130.81 Hz by default (a low C). Change it under Settings → Psaltiquent to suit your voice or your choir.
+The plugin plays Ni at 130.81 Hz by default (a low C). Change it under Settings → Frequent Chant to suit your voice or your choir.
 
 ## Try it
 

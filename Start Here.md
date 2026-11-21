@@ -1,10 +1,10 @@
 # Start Here
 
-Psaltiquent is a one-year course to take you from chanting by ear and memory to **sight-reading any Byzantine score**, in about 15 minutes a day, six days a week. Sunday is for church.
+Frequent Chant is a one-year course to take you from chanting by ear and memory to **sight-reading any Byzantine score**, in about 15 minutes a day, six days a week. Sunday is for church.
 
 ## 1. Open the vault
 
-In Obsidian: *Open folder as vault* → choose this `Psaltiquent` folder.
+In Obsidian: *Open folder as vault* → choose this `Frequent Chant` folder.
 
 ## 2. Turn on the plugin (one time, per device)
 
@@ -12,14 +12,14 @@ Obsidian keeps community plugins off in every new vault until you allow them, so
 
 1. Settings (gear icon) → **Community plugins**
 2. Click **Turn on community plugins** (this turns off Restricted mode)
-3. Under *Installed plugins*, make sure **Psaltiquent** is switched on
+3. Under *Installed plugins*, make sure **Frequent Chant** is switched on
 4. Go back to [[Home]]
 
 On a phone or iPad, do the same in the vault's settings after you sync the folder.
 
 ## 3. Set your pitch
 
-Settings → Psaltiquent → *Pitch of Ni*. The default is 130.81 Hz (a low C). Choose a pitch where low Zo and high Pa' are both comfortable.
+Settings → Frequent Chant → *Pitch of Ni*. The default is 130.81 Hz (a low C). Choose a pitch where low Zo and high Pa' are both comfortable.
 
 ## 4. How a day works
 
@@ -33,7 +33,7 @@ Then rate yourself and press **Mark day done**. Your log fills in by itself.
 
 Missed days? No problem. The plan waits for you. Home tells you if you're behind and lets you do up to two days in one sitting.
 
-Already know the Block 1 material? Settings → Psaltiquent → *Jump to day* (for example Day 49 starts the workbook hymns).
+Already know the Block 1 material? Settings → Frequent Chant → *Jump to day* (for example Day 49 starts the workbook hymns).
 
 ## Your files vs. course files
 

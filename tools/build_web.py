@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the Psaltiquent web app from this vault and the Greekquent web shell.
+"""Build the Frequent Chant web app from this vault and the Greekquent web shell.
 
 usage: python3 tools/build_web.py GREEKQUENT_SHELL OUT
 Runs the psaltiki plugin unchanged in the shell's Obsidian stand-in. Own storage (psq:), own cache, private hosting.
@@ -44,7 +44,7 @@ open(os.path.join(out, 'notes.json'), 'w', encoding='utf-8').write(blob)
 json.dump({'version': ver}, open(os.path.join(out, 'version.json'), 'w'))
 os.makedirs(os.path.join(out, 'lib'))
 EXTRA = r"""
-// ---------- Settings (Psaltiquent) ----------
+// ---------- Settings (Frequent Chant) ----------
 class PluginSettingTab { constructor(app, plugin) { this.app = app; this.plugin = plugin; this.containerEl = createDiv(); } display() {} hide() {} }
 class Setting {
   constructor(el) { this.settingEl = el.createDiv('setting-item'); const i = this.settingEl.createDiv('setting-item-info'); this.nameEl = i.createDiv('setting-item-name'); this.descEl = i.createDiv('setting-item-description'); this.controlEl = this.settingEl.createDiv('setting-item-control'); }
@@ -55,8 +55,8 @@ class Setting {
 """
 def fix(t, f):
     t = t.replace('Greekquent™ and Frequent™', '@@TM@@')
-    t = t.replace('Greekquent Beginner', 'Psaltiquent').replace('Greekquent', 'Psaltiquent').replace('@@TM@@', 'Greekquent™, Psaltiquent™ and Frequent™')
-    t = t.replace("'gqw:", "'psq:").replace("'gqw-", "'psq-").replace('greekquent-beginner-', 'psaltiquent-')
+    t = t.replace('Greekquent Beginner', 'Frequent Chant').replace('Greekquent', 'Frequent Chant').replace('@@TM@@', 'Greekquent™ and Frequent™')
+    t = t.replace("'gqw:", "'psq:").replace("'gqw-", "'psq-").replace('greekquent-beginner-', 'frequent-chant-')
     t = t.replace('greekquent-student-layout', 'psaltiki').replace('Θα τα πούμε.', 'Ψαλτική')
     t = t.replace('can clear your colors and φόρα after a week away', 'can clear your progress after a week away')
     t = t.replace("Greek through the most frequent words, five a day, with games and real scenes.", 'Byzantine music reading, fifteen minutes a day: drone, tuner, review and a 48-week plan.')
@@ -77,7 +77,7 @@ def fix(t, f):
   const nav = $('#gq-nav');""")
     if f == 'index.html':
         t = t.replace('__V__', ver).replace('<head>', '<head>\n<meta name="robots" content="noindex, nofollow">', 1)
-    if f == 'sw.js': t = t.replace("'psaltiquent-v1'", "'psaltiquent-" + ver + "'")
+    if f == 'sw.js': t = t.replace("'frequent-chant-v1'", "'frequent-chant-" + ver + "'")
     return t
 for f in os.listdir(shell):
     s = os.path.join(shell, f)
@@ -86,4 +86,4 @@ for f in os.listdir(shell):
     if not f.endswith(('.html', '.js', '.css', '.webmanifest')): shutil.copy2(s, os.path.join(out, f)); continue
     open(os.path.join(out, f), 'w', encoding='utf-8').write(fix(open(s, encoding='utf-8').read(), f))
 for f in os.listdir(os.path.join(src, 'tools', 'icons')): shutil.copy2(os.path.join(src, 'tools', 'icons', f), os.path.join(out, f))
-print('psaltiquent:', len(notes), 'notes, version', ver)
+print('frequent-chant:', len(notes), 'notes, version', ver)
