@@ -511,16 +511,23 @@ class FrequentChantPlugin extends Plugin {
     // ear quiz
     const quiz = box.createDiv({ cls: 'psq-card' });
     quiz.createEl('h4', { text: 'Ear quiz' });
-    const qtext = quiz.createDiv({ text: 'With the drone on the base, a note will play. Tap its name.' });
+    const qtext = quiz.createDiv({ text: 'You hear the base, then a note. Tap the note\u2019s name. The drone stays off unless you turn it on.' });
     const qrow = quiz.createDiv({ cls: 'psq-keys' });
     const qscore = quiz.createDiv({ cls: 'psq-muted' });
     let score = 0, asked = 0, target = null;
+    // With the drone off, the base sounds briefly first as the reference. The quiz never turns the drone on.
+    const playQ = () => {
+      if (target === null) return;
+      const t = H.freq(ni(), H.posOf(state.genus, target));
+      if (this.drone) { this.playTone(t, 1.2); return; }
+      this.playTone(H.freq(ni(), H.posOf(state.genus, baseK())), 0.9);
+      setTimeout(() => this.playTone(t, 1.2), 1100);
+    };
     const ask = () => {
       const b = baseK();
       const opts = []; for (let k = b - 2; k <= b + 7; k++) opts.push(k);
       target = opts[Math.floor(Math.random() * opts.length)];
-      if (!this.drone) this.startDrone(H.freq(ni(), H.posOf(state.genus, b)));
-      setTimeout(() => this.playTone(H.freq(ni(), H.posOf(state.genus, target)), 1.2), 350);
+      playQ();
       qrow.empty();
       opts.forEach((k) => {
         const btn = qrow.createEl('button', { cls: 'psq-key', text: H.degName(k) });
@@ -536,7 +543,7 @@ class FrequentChantPlugin extends Plugin {
     };
     const qb = quiz.createDiv({ cls: 'psq-row' });
     qb.createEl('button', { text: 'Play a note', cls: 'mod-cta' }).onclick = ask;
-    qb.createEl('button', { text: 'Replay' }).onclick = () => { if (target !== null) this.playTone(H.freq(ni(), H.posOf(state.genus, target)), 1.2); };
+    qb.createEl('button', { text: 'Replay' }).onclick = playQ;
 
     // tuner
     const tun = box.createDiv({ cls: 'psq-card' });

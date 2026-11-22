@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Frequent Chant</title><rect width="512" height="512" rx="96" fill="#7a1f2b"/><text x="256" y="352" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="300" fill="#f2c14e">Ψ</text><rect x="154" y="410" width="204" height="16" fill="#f2c14e"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><title>Frequent Chant</title>
+<rect width="512" height="512" rx="96" fill="#7a1f2b"/>
+<path d="M232 360 L280 360 L300 418 L212 418 Z" fill="#f2c14e"/>
+<rect x="166" y="410" width="180" height="22" rx="11" fill="#f2c14e"/>
+<path d="M256 148 C214 124 150 120 96 138 L96 344 C150 328 214 330 256 356 Z" fill="#fbf1d9" stroke="#f2c14e" stroke-width="12" stroke-linejoin="round"/>
+<path d="M256 148 C298 124 362 120 416 138 L416 344 C362 328 298 330 256 356 Z" fill="#fbf1d9" stroke="#f2c14e" stroke-width="12" stroke-linejoin="round"/>
+<g stroke="#7a1f2b" stroke-width="9" stroke-linecap="round" fill="none">
+<path d="M124 198 C160 188 196 188 230 198"/><path d="M124 246 C160 236 196 236 230 246"/><path d="M124 294 C160 284 196 284 230 294"/>
+<path d="M282 198 C316 188 352 188 388 198"/><path d="M282 246 C316 236 352 236 388 246"/><path d="M282 294 C316 284 352 284 388 294"/>
+</g>
+<g fill="#c0392b">
+<path d="M136 178 l18 -10" stroke="#c0392b" stroke-width="7" stroke-linecap="round"/><circle cx="182" cy="174" r="6"/><path d="M204 166 q10 8 20 0" stroke="#c0392b" stroke-width="6" fill="none" stroke-linecap="round"/>
+<path d="M294 172 l20 0" stroke="#c0392b" stroke-width="7" stroke-linecap="round"/><path d="M330 178 l16 -12" stroke="#c0392b" stroke-width="7" stroke-linecap="round"/><circle cx="370" cy="172" r="6"/>
+<path d="M140 226 q10 8 20 0" stroke="#c0392b" stroke-width="6" fill="none" stroke-linecap="round"/><circle cx="196" cy="222" r="6"/>
+<path d="M300 226 l16 -10" stroke="#c0392b" stroke-width="7" stroke-linecap="round"/><path d="M344 222 q10 8 20 0" stroke="#c0392b" stroke-width="6" fill="none" stroke-linecap="round"/>
+<circle cx="150" cy="272" r="6"/><path d="M176 276 l18 -10" stroke="#c0392b" stroke-width="7" stroke-linecap="round"/>
+<path d="M306 274 l20 0" stroke="#c0392b" stroke-width="7" stroke-linecap="round"/><circle cx="360" cy="270" r="6"/>
+</g>
+<path d="M248 352 L248 398 L256 388 L264 398 L264 354" fill="#b8323f" stroke="#b8323f" stroke-width="2" stroke-linejoin="round"/>
+</svg>
